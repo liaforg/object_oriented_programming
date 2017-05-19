@@ -8,24 +8,25 @@ class Cats
   @preferred_food = preferred_food
   @meal_time = meal_time
 
-  cat1 = Cats.new('one', 'tuna', '5')
-  cat2 = Cats.new('two', 'salmon', '8')
-  cat3 = Cats.new('three', 'kibble', '15')
-
  def eats_at
-   if @meal_time <= 10
+   if @meal_time < 10
      "AM"
-   else @meal_time >= 10
+   else @meal_time > 10
      "PM"
+   end
  end
 
  def meow
-   puts "My name is #{@name} and I eat #{@preferred_food} at #{@meal_time}"
+   puts "My name is #{@name} and I eat #{@preferred_food} at #{eats_at}"
  end
 
-meow.cat1
-meow.cat2
-meow.cat3
+ end
+ end
 
+ cat1 = Cats.new('one', 'tuna', 5)
+ cat2 = Cats.new('two', 'salmon', 8)
+ cat3 = Cats.new('three', 'kibble', 15)
 
-end
+puts cat1.meow
+puts cat2.meow
+puts cat3.meow
